@@ -1,0 +1,285 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+    align-items: center; */
+  margin: 0;
+  background-image: url("../assets/login/Background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbarContainer {
+  position: relative;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  align-self: start;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  height: 120px;
+}
+
+.logo {
+  height: 30px;
+  display: block;
+}
+
+.navbarLinks {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.logoContainer {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .navbarLink{
+    color: white;
+} */
+
+.languageSelect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.flagImage {
+  height: 20px;
+  margin: 6px;
+}
+
+.selectLanguageContainer {
+  position: absolute;
+  top: 60%;
+  right: 0;
+  padding: 4px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 10px;
+  color: black;
+}
+
+.languageSelect:hover {
+  border-radius: 10px;
+  height: full;
+  width: full;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  background-color: white;
+  border-radius: 50px;
+  padding: 48px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%;
+}
+
+.loginContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.loginTitle {
+  text-align: center;
+  align-self: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inputLabel {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.email {
+  padding: 2px 16px;
+  border-radius: 20px;
+  border: 1px solid #727272;
+  font-size: 16px;
+  height: 32px;
+  margin: 6px 0px;
+  width: 90%;
+  outline-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.email::placeholder {
+  color: 727272;
+}
+
+.email:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.password {
+  padding: 2px 16px;
+  border-radius: 20px;
+  border: 1px solid #727272;
+  font-size: 16px;
+  height: 32px;
+  margin: 6px 0px;
+  width: 90%;
+  outline-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.password::placeholder {
+  color: lightgray;
+}
+
+.loginButton {
+  background-color: rgb(2, 160, 2);
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 20px 28px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+  align-self: center;
+}
+
+.registerForgetContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.registerButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.forgotButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.footerContainer {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.footerTop {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 30px;
+}
+
+.line {
+  border: none;
+  height: 1px;
+  width: 90%;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.companyName {
+    font-size: 32px;
+}
+
+.hamburgerMenu {
+  display: none;
+  position: absolute;
+}
+
+.hamburgerItem{
+  width: 100px;
+  background-color: white;
+  padding: 10px 10px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburgerContainer {
+  position: absolute;
+  top: 64px;     
+  left: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  padding: 10px 0;
+
+  z-index: 99;
+}
+
+@media (max-width: 1270px) {
+  .hamburgerMenu {
+    display: absolute;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    align-self: center;
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+  }
+
+  .logo {
+    display: none;
+  }
+}
