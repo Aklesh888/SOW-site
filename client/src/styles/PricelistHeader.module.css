@@ -1,0 +1,62 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.header {
+    box-sizing: border-box;
+    padding: 12px 120px ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: rgb(9, 116, 255);
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.profileImage {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.address {
+    font-size: 14px;
+}
+
+.flagContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.flagName {
+    font-size: 14px;
+}
+
+.flag {
+    height: 40px;
+    width: 40px;
+}
+

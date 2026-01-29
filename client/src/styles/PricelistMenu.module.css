@@ -1,0 +1,33 @@
+.mainContainer {
+    display: flex;
+    width: 100%;
+}
+
+
+
+.itemContainer {
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.itemImage {
+    height: 12px;
+    width: 12px;
+}
+
+.menuName {
+    align-self: center;
+}
+
+.menuContainer {
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+}

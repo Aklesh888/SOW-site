@@ -11,7 +11,7 @@ body {
   margin: 0;
   background-image: url("../assets/login/Background.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: initial;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
@@ -32,6 +32,14 @@ body {
 .logo {
   height: 30px;
   display: block;
+}
+
+.linksLanguageContainer {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .navbarLinks {
@@ -64,6 +72,7 @@ body {
 
 .flagImage {
   height: 20px;
+  width: 20px;
   margin: 6px;
 }
 
@@ -231,7 +240,7 @@ body {
 }
 
 .companyName {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .hamburgerMenu {
@@ -239,7 +248,7 @@ body {
   position: absolute;
 }
 
-.hamburgerItem{
+.hamburgerItem {
   width: 100px;
   background-color: white;
   padding: 10px 10px;
@@ -251,7 +260,7 @@ body {
 
 .hamburgerContainer {
   position: absolute;
-  top: 64px;     
+  top: 64px;
   left: 20px;
   background: white;
   border-radius: 8px;
@@ -263,6 +272,71 @@ body {
 }
 
 @media (max-width: 1270px) {
+  .companyName {
+    font-size: 24px;
+  }
+
+  .footerTop {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .footerContainer {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  .background {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .inputLabel {
+    font-size: 14px;
+  }
+
+  .email {
+    padding: 2px 16px;
+    border-radius: 20px;
+    border: 1px solid #727272;
+    font-size: 16px;
+    height: 28px;
+    margin: 6px 0px;
+    width: 90%;
+    outline-color: transparent;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    justify-self: center;
+    align-self: center;
+    background-color: white;
+    border-radius: 32px;
+    padding: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+  }
+
+  .loginContainer {
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
 
   .mediumScreenNav {
     display: block;
@@ -291,5 +365,45 @@ body {
 
   .navbarLinks {
     display: none;
+  }
+}
+
+@media (max-width: 1270px) {
+  .hamburgerContainer {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 150px;
+    padding: 10px 0;
+
+    z-index: 99;
+  }
+
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    justify-self: center;
+    align-self: center;
+    background-color: white;
+    border-radius: 32px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+  }
+
+  .loginContainer {
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
   }
 }
