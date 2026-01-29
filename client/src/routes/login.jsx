@@ -20,64 +20,67 @@ export const Login = () => {
       <nav className={styles.navbarContainer}>
         <div className={styles.logoContainer}>
           <img src={logo} alt="" className={styles.logo} />
+          <div className={styles.mediumScreenNav}>
+            <div
+              className={styles.hamburger}
+              onClick={() => {
+                setShowHamburgerMenu(!showHamburgerMenu);
+              }}
+            >
+              Open
+            </div>
+          </div>
         </div>
-        <div
-          className={styles.hamburger}
-          onClick={() => {
-            setShowHamburgerMenu(!showHamburgerMenu);
-          }}
-        >Open</div>
-
+        
         <div className={styles.navbarLinks}>
           <div className={styles.navbarLink}>Home</div>
           <div className={styles.navbarLink}>Home</div>
           <div className={styles.navbarLink}>Home</div>
           <div className={styles.navbarLink}>Home</div>
           <div className={styles.navbarLink}>Home</div>
-
-          {isLanguageSelectorOpen && (
-            <div className={styles.selectLanguageContainer}>
-              <div
-                className={styles.languageSelect}
-                onClick={() => handleLanguageButton("Language 1")}
-              >
-                <div>Language 1</div>
-                <img src={swedenFlag} alt="" className={styles.flagImage} />
-              </div>
-              <div
-                className={styles.languageSelect}
-                onClick={() => handleLanguageButton("Language 2")}
-              >
-                <div>Language 2</div>
-                <img src={ukFlag} alt="" className={styles.flagImage} />
-              </div>
-            </div>
-          )}
-
-          {selectedLanguage === "Language 1" ? (
+        </div>
+        {isLanguageSelectorOpen && (
+          <div className={styles.selectLanguageContainer}>
             <div
               className={styles.languageSelect}
-              onClick={() => {
-                setIsLanguageSelectorOpen(true);
-              }}
+              onClick={() => handleLanguageButton("Language 1")}
             >
               <div>Language 1</div>
               <img src={swedenFlag} alt="" className={styles.flagImage} />
             </div>
-          ) : (
             <div
               className={styles.languageSelect}
-              onClick={() => {
-                setIsLanguageSelectorOpen(true);
-              }}
+              onClick={() => handleLanguageButton("Language 2")}
             >
               <div>Language 2</div>
               <img src={ukFlag} alt="" className={styles.flagImage} />
             </div>
-          )}
-        </div>
+          </div>
+        )}
+
+        {selectedLanguage === "Language 1" ? (
+          <div
+            className={styles.languageSelect}
+            onClick={() => {
+              setIsLanguageSelectorOpen(true);
+            }}
+          >
+            <div>Language 1</div>
+            <img src={swedenFlag} alt="" className={styles.flagImage} />
+          </div>
+        ) : (
+          <div
+            className={styles.languageSelect}
+            onClick={() => {
+              setIsLanguageSelectorOpen(true);
+            }}
+          >
+            <div>Language 2</div>
+            <img src={ukFlag} alt="" className={styles.flagImage} />
+          </div>
+        )}
       </nav>
-      
+
       {showHamburgerMenu && (
         <div className={styles.hamburgerContainer}>
           <div className={styles.hamburgerItem}>Home</div>

@@ -55,6 +55,7 @@ body {
 } */
 
 .languageSelect {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,7 +245,7 @@ body {
   padding: 10px 10px;
 }
 
-.hamburger {
+.mediumScreenNav {
   display: none;
 }
 
@@ -262,6 +263,11 @@ body {
 }
 
 @media (max-width: 1270px) {
+
+  .mediumScreenNav {
+    display: block;
+  }
+
   .hamburgerMenu {
     display: absolute;
     position: absolute;
@@ -274,12 +280,16 @@ body {
     align-self: center;
     display: block;
     width: 30px;
-    height: 3px;
+    /* height: 3px; */
     background-color: white;
     margin: 6px 0;
   }
 
   .logo {
+    display: none;
+  }
+
+  .navbarLinks {
     display: none;
   }
 }
