@@ -1,7 +1,10 @@
-import headerStyles from '../styles/PricelistHeader.module.css'
-import menuStyles from '../styles/PricelistMenu.module.css'
-import productStyles from '../styles/PricelistMenu.module.css'
-import MenuLogo from '../assets/login/SwedenFlag.png'
+import headerStyles from "../styles/PricelistHeader.module.css";
+import menuStyles from "../styles/PricelistMenu.module.css";
+import productStyles from "../styles/PricelistProduct.module.css";
+import contentStyles from "../styles/PricelistContent.module.css";
+import MenuLogo from "../assets/login/SwedenFlag.png";
+import { BiPlusCircle, BiPrinter, BiSolidDownArrow } from "react-icons/bi";
+import { GrSwitch } from "react-icons/gr";
 
 export const PricingList = () => {
   return (
@@ -22,13 +25,12 @@ export const PricingList = () => {
       </header>
 
       <div className={menuStyles.mainContainer}>
-        <Menu/>
+        <Menu />
         <Contents />
       </div>
     </div>
   );
 };
-
 
 const Menu = () => {
   return (
@@ -70,37 +72,118 @@ const Menu = () => {
         </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 const Contents = () => {
   return (
-    <div className={styles.contentRoot}>
-      <div className={styles.searchPriceSection}>
-        <div className={styles.searchSection}></div>
-        <div className={styles.newProductSection}></div>
+    <div className={contentStyles.contentRoot}>
+      <div className={contentStyles.searchPriceSection}>
+        <div className={contentStyles.searchSection}>
+          <div className={contentStyles.searchBarContainer}>
+            <input
+              className={contentStyles.searchInput}
+              placeholder="Search article No."
+            ></input>
+          </div>
+          <div className={contentStyles.searchBarContainer}>
+            <input
+              className={contentStyles.searchInput}
+              placeholder="Search article No."
+            ></input>
+          </div>
+        </div>
+        <div className={contentStyles.newProductSection}>
+          <div className={contentStyles.buttonContainer}>
+            <button className={contentStyles.newProductButton}>
+              New Product
+            </button>
+            <BiPlusCircle/>
+          </div>
+          <div className={contentStyles.buttonContainer}>
+            <button className={contentStyles.newProductButton}>
+              New Product
+            </button>
+            <BiPrinter/>
+          </div>
+          <div className={contentStyles.buttonContainer}>
+            <button className={contentStyles.newProductButton}>
+              New Product
+            </button>
+            <GrSwitch />
+          </div>
+        </div>
       </div>
-      <div className={styles.articleSection}>
-        <div className={styles.titleContainer}></div>
-        <div className={styles.productsContainer}>
+      <div className={contentStyles.articleSection}>
+        <div className={contentStyles.titlesContainer}>
+          <div className={contentStyles.titleArticleNo}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <BiSolidDownArrow size={20} />
+          </div>
+          <div className={contentStyles.titleProductName}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <BiSolidDownArrow size={20} />
+          </div>
+          <div className={contentStyles.titleInPrice}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+          </div>
+          <div className={contentStyles.titlePrice}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+          </div>
+          <div className={contentStyles.titleUnit}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+          </div>
+          <div className={contentStyles.titleInStock}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+          </div>
+          <div className={contentStyles.titleDescription}>
+            <div className={contentStyles.titleArticleNo}>Article No</div>
+          </div>
+        </div>
+        <div className={contentStyles.productsContainer}>
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
           <Product />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Product = () => {
   return (
     <div className={productStyles.productContainer}>
-      <input type="text" className={productStyles.inputArticleNo} />
-      <input type="text" className={productStyles.inputProductName} />
-      <input type="text" className={productStyles.inputInPrice} />
-      <input type="text" className={productStyles.inputPrice} />
-      <input type="text" className={productStyles.inputUnit} />
-      <input type="text" className={productStyles.inputInStock} />
-      <input type="text" className={productStyles.inputDescription} />
+      <input
+        type="text"
+        name="articleNo"
+        className={productStyles.inputArticleNo}
+      />
+      <input
+        type="text"
+        name="productName"
+        className={productStyles.inputProductName}
+      />
+      <input
+        type="text"
+        name="inPrice"
+        className={productStyles.inputInPrice}
+      />
+      <input type="text" name="price" className={productStyles.inputPrice} />
+      <input type="text" name="unit" className={productStyles.inputUnit} />
+      <input
+        type="text"
+        name="inStock"
+        className={productStyles.inputInStock}
+      />
+      <input
+        type="text"
+        name="description"
+        className={productStyles.inputDescription}
+      />
     </div>
-  )
-}
+  );
+};

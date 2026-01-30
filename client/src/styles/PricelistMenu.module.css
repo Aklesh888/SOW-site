@@ -31,3 +31,10 @@
     flex-direction: column;
     width: 10%;
 }
+
+
+@media (max-width: 1270px) {
+    .menuContainer {
+        display: none;
+    }
+}
