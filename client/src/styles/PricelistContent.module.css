@@ -1,5 +1,5 @@
 .contentRoot {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,21 +22,19 @@
   justify-content: center;
   align-content: center;
   width: 100%;
-  gap: 10px;
+  gap: 4px;
 }
 
 .titlesContainer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-
 .titleArticleNo {
-  display: flex;
   border-radius: 8px;
   height: 16px;
   width: 100px;
@@ -44,10 +42,9 @@
 }
 
 .titleProductName {
-  display: flex;
   border-radius: 8px;
   height: 16px;
-  width: 300px;
+  width: 280px;
   padding: 4px;
 }
 
@@ -57,6 +54,7 @@
   width: 80px;
   padding: 4px;
 }
+
 
 .titlePrice {
   border-radius: 8px;
@@ -68,7 +66,7 @@
 .titleUnit {
   border-radius: 8px;
   height: 16px;
-  width: 120px;
+  width: 100px;
   padding: 4px;
 }
 
@@ -88,7 +86,7 @@
 
 .searchPriceSection {
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-between;
 }
 
@@ -96,19 +94,19 @@
   display: flex;
   gap: 10px;
   flex-direction: column;
-  width: 50%;
   justify-content: start;
 }
 
 .searchBarContainer {
   border: 1px solid #d9d9d9;
-  justify-items: center;
+  justify-content: space-between;
   display: flex;
-  padding: 6px;
-  width: 30%;
+  flex-direction: row;
+  align-items: end;
+  width: 300px;
   border-radius: 20px;
   outline: none;
-  height: 20px;
+  height: 32px;
 }
 
 .searchInput::placeholder {
@@ -117,30 +115,40 @@
 }
 
 .searchInput {
+  border-radius: 32px;
+  padding: 6px;
   border: none;
   outline: none;
+}
+
+.searchIconContainer{
+  padding: 6px;
+  background-color: #ebebeb;
+  border-radius: 0 50% 50% 0;
 }
 
 .newProductSection {
   display: flex;
   gap: 10px;
-  width: 40%;
+  width: 50%;
   justify-content: end;
 }
 
 .buttonContainer {
   border: 1px solid #a2a2a2;
   color: #a2a2a2;
-  justify-items: center;
   display: flex;
-  padding: 6px;
-  width: 22%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 300px;
   border-radius: 20px;
   outline: none;
-  height: 20px;
+  gap: 10px;
+  height: 32px;
 }
 
-.newProductButton {
+.newProductButtonLabel {
   border: none;
   background: none;
   outline: none;
@@ -148,10 +156,118 @@
   cursor: pointer;
 }
 
+.titleLabel {
+  font-size: 16;
+  align-self: center;
+  padding: 2px 4px;
+}
+
+@media (max-width: 1400px) {
+  .newProductButtonLabel {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+  .titleDescription {
+    display: none;
+  }
+
+  .contentRoot {
+    width: 98%;
+    padding: 10px 1%;
+  }
+
+  .titlesContainer {
+    font-size: 12px;
+  }
+  .titleDescription {
+    display: none;
+  }
+  
+  .contentRoot {
+    width: 98%;
+    padding: 10px 1%;
+  }
+}
 
 
-@media (max-width: 1270px) {
-    .menu {
-        display: none;
-    }
+@media (max-width: 900px) {
+
+
+  
+  .articleSection{
+    width: 90%;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  
+  .contentRoot {
+    width: 100%;
+    padding: 10px 1%;
+  }
+  
+  .titleInPrice {
+    display: none;
+  }
+
+  .titleInStock {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .titleUnit {
+    display: none;
+  }
+
+    .titleProductName {
+    width: 180px;
+  }
+
+  .titleArticleNo {
+    width: 70px;
+  }
+}
+
+@media (max-width: 500px) {
+  .searchPriceSection{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .searchSection {
+    width: 90%;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .newProductSection{
+    width: 80%;
+    align-items: center;
+    justify-items: center;
+  }
+  .searchPriceSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .titleArticleNo {
+    display: none;
+  }
+  .titleProductName {
+    width: 180px;
+  }
+
+  .titlePrice {
+    width: 60px;
+  }
+
 }

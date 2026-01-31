@@ -3,7 +3,7 @@ import menuStyles from "../styles/PricelistMenu.module.css";
 import productStyles from "../styles/PricelistProduct.module.css";
 import contentStyles from "../styles/PricelistContent.module.css";
 import MenuLogo from "../assets/login/SwedenFlag.png";
-import { BiPlusCircle, BiPrinter, BiSolidDownArrow } from "react-icons/bi";
+import { BiPlusCircle, BiPrinter, BiSearch, BiSolidDownArrow } from "react-icons/bi";
 import { GrSwitch } from "react-icons/gr";
 
 export const PricingList = () => {
@@ -20,7 +20,7 @@ export const PricingList = () => {
 
         <div className={headerStyles.flagContainer}>
           <h1 className={headerStyles.flagName}>Norway</h1>
-          <img src="" className={headerStyles.flag} alt="" />
+          <img src={MenuLogo} className={headerStyles.flag} alt="" />
         </div>
       </header>
 
@@ -85,59 +85,65 @@ const Contents = () => {
               className={contentStyles.searchInput}
               placeholder="Search article No."
             ></input>
+            <div className={contentStyles.searchIconContainer}>
+              <BiSearch size={16} color="rgb(155, 196, 255)"/>
+            </div>
           </div>
           <div className={contentStyles.searchBarContainer}>
             <input
               className={contentStyles.searchInput}
               placeholder="Search article No."
             ></input>
+             <div className={contentStyles.searchIconContainer}>
+              <BiSearch size={16} color="rgb(155, 196, 255)"/>
+            </div>
           </div>
         </div>
         <div className={contentStyles.newProductSection}>
-          <div className={contentStyles.buttonContainer}>
-            <button className={contentStyles.newProductButton}>
+          <button className={contentStyles.buttonContainer}>
+            <div className={contentStyles.newProductButtonLabel}>
               New Product
-            </button>
-            <BiPlusCircle/>
-          </div>
-          <div className={contentStyles.buttonContainer}>
-            <button className={contentStyles.newProductButton}>
+            </div>
+            <BiPlusCircle />
+          </button>
+          <button className={contentStyles.buttonContainer}>
+            <div className={contentStyles.newProductButtonLabel}>
               New Product
-            </button>
+            </div>
             <BiPrinter/>
-          </div>
-          <div className={contentStyles.buttonContainer}>
-            <button className={contentStyles.newProductButton}>
+          </button>
+          <button className={contentStyles.buttonContainer}>
+            <div className={contentStyles.newProductButtonLabel}>
               New Product
-            </button>
+            </div>
             <GrSwitch />
-          </div>
+          </button>
         </div>
       </div>
       <div className={contentStyles.articleSection}>
         <div className={contentStyles.titlesContainer}>
           <div className={contentStyles.titleArticleNo}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
             <BiSolidDownArrow size={20} />
           </div>
           <div className={contentStyles.titleProductName}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
             <BiSolidDownArrow size={20} />
           </div>
           <div className={contentStyles.titleInPrice}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
           </div>
           <div className={contentStyles.titlePrice}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
           </div>
           <div className={contentStyles.titleUnit}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
           </div>
           <div className={contentStyles.titleInStock}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
           </div>
           <div className={contentStyles.titleDescription}>
-            <div className={contentStyles.titleArticleNo}>Article No</div>
+            <div className={contentStyles.titleLabel}>Article No</div>
           </div>
         </div>
         <div className={contentStyles.productsContainer}>

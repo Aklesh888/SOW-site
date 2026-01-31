@@ -1,6 +1,9 @@
 .mainContainer {
     display: flex;
-    width: 100%;
+    width: 100vw;
+    -ms-overflow-style: none;       
+    scrollbar-width: none;
+    box-sizing: border-box;
 }
 
 
@@ -25,11 +28,12 @@
 
 .menuContainer {
     padding: 10px 20px;
+    box-sizing: border-box;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     height: 100vh;
     display: flex;
     flex-direction: column;
-    width: 10%;
+    width: 10vw;
 }
 
 
