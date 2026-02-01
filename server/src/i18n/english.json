@@ -1,0 +1,29 @@
+{
+    "navbar" : {
+        "home": "Home",
+        "order": "Order",
+        "ourCustomers": "Our Customers",
+        "about": "About Us",
+        "contact": "Contact"
+    },
+    "contents": {
+        "logIn": "Log In",
+        "enterEmail": "Enter your email address",
+        "email": "Email Address",
+        "emailError": "Vänligen skriv in en giltig epost adress",
+        "passwordError": "This field cannot be empty",
+        "enterPassword": "Enter your password",
+        "password": "Password",
+        "register": "Register",
+        "forgotPassword": "Forgotten Password?"
+    },
+    "footer": {
+        "address": "123 Fakturera",
+        "home": "Home",
+        "order": "Order",
+        "contact": "Contact",
+        "allRightServed": "© Lättfaktura, CRO no. 638537, 2025. All rights reserved."
+    }
+
+    
+}

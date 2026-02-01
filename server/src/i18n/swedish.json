@@ -1,0 +1,29 @@
+{
+    "navbar" : {
+        "home": "Hem",
+        "order": "Beställ",
+        "ourCustomers": "Våra Kunder",
+        "about": "Om oss",
+        "contact": "Kontakta oss"
+    },
+    "contents": {
+        "logIn": "Logga in",
+        "enterEmail": "Skriv in din epost adress",
+        "email": "Epost Adress",
+        "emailError": "Please enter a valid email address",
+        "passwordError": "This field cannot be empty",
+        "enterPassword": "Skriv in ditt lösenord",
+        "password": "Lösenord",
+        "register": "Registrera dig",
+        "forgotPassword": "Glömt lösenord?"
+    },
+    "footer": {
+        "address": "123 Fakturera",
+        "home": "Hem",
+        "order": "Beställ",
+        "contact": "Kontakta oss",
+        "allRightServed": "© Lättfaktura, CRO no. 638537, 2025. All rights reserved."
+    }
+
+    
+}

@@ -1,14 +1,11 @@
-import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import prisma from "../prisma.js";
+import {prisma} from "../prisma.js";
 
-
-const router = express.Router();
 
 export const RegisterController = async (req, res) => {
-  
-  const { email, password } = req.body;
+
+  const { email, password, country } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
@@ -16,6 +13,7 @@ export const RegisterController = async (req, res) => {
       data: {
         email,
         password: hashedPassword,
+        country 
       },
     });
 
@@ -29,7 +27,18 @@ export const LoginController = async (req, res) => {
 
   const { email, password } = req.body;
 
+  if (req.body == null) {
+    return res.status(400).json({ error: "Request body is missing" });
+  }
+
+  if (!email || !password  ) {
+    return res.status(400).json({ error: "Email and password are required" });
+  }
+  
   const user = await prisma.user.findUnique({where: { email } });
+
+
+
 
   if (!user) {
     return res.status(401).json({ error: "Invalid email or password" });

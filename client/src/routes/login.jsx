@@ -3,10 +3,22 @@ import swedenFlag from "../assets/login/SwedenFlag.png";
 import ukFlag from "../assets/login/UKFlag.png";
 import logo from "../assets/login/Diamond.png";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getLoginTexts } from "../services/getLoginTexts";
+import { useEffect } from "react";
 
 export const Login = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("Language 2");
+  const [selectedLanguage, setSelectedLanguage] = useState("english");
   const [isLanguageSelectorOpen, setIsLanguageSelectorOpen] = useState(true);
+
+  const { data: loginTexts, isLoading, refetch } = useQuery({
+    queryKey: ["logintext"],
+    queryFn: () => getLoginTexts(selectedLanguage),
+  });
+
+  useEffect(() => {
+    refetch();
+  }, [selectedLanguage]);
 
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 
@@ -15,6 +27,9 @@ export const Login = () => {
     setIsLanguageSelectorOpen(false);
   };
 
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
   return (
     <div className={styles.background}>
       <nav className={styles.navbarContainer}>
@@ -34,26 +49,28 @@ export const Login = () => {
 
         <div className={styles.linksLanguageContainer}>
           <div className={styles.navbarLinks}>
-            <div className={styles.navbarLink}>Home</div>
-            <div className={styles.navbarLink}>Home</div>
-            <div className={styles.navbarLink}>Home</div>
-            <div className={styles.navbarLink}>Home</div>
-            <div className={styles.navbarLink}>Home</div>
+            <div className={styles.navbarLink}>{loginTexts.navbar.home}</div>
+            <div className={styles.navbarLink}>{loginTexts.navbar.order}</div>
+            <div className={styles.navbarLink}>
+              {loginTexts.navbar.ourCustomers}
+            </div>
+            <div className={styles.navbarLink}>{loginTexts.navbar.about}</div>
+            <div className={styles.navbarLink}>{loginTexts.navbar.contact}</div>
           </div>
           {isLanguageSelectorOpen && (
             <div className={styles.selectLanguageContainer}>
               <div
                 className={styles.languageSelect}
-                onClick={() => handleLanguageButton("Language 1")}
+                onClick={() => handleLanguageButton("swedish")}
               >
-                <div>Language 1</div>
+                <div>Swedesh</div>
                 <img src={swedenFlag} alt="" className={styles.flagImage} />
               </div>
               <div
                 className={styles.languageSelect}
-                onClick={() => handleLanguageButton("Language 2")}
+                onClick={() => handleLanguageButton("english")}
               >
-                <div>Language 2</div>
+                <div>English</div>
                 <img src={ukFlag} alt="" className={styles.flagImage} />
               </div>
             </div>
@@ -66,7 +83,7 @@ export const Login = () => {
                 setIsLanguageSelectorOpen(true);
               }}
             >
-              <div>Language 1</div>
+              <div>Swedish</div>
               <img src={swedenFlag} alt="" className={styles.flagImage} />
             </div>
           ) : (
@@ -76,7 +93,7 @@ export const Login = () => {
                 setIsLanguageSelectorOpen(true);
               }}
             >
-              <div>Language 2</div>
+              <div>English</div>
               <img src={ukFlag} alt="" className={styles.flagImage} />
             </div>
           )}
@@ -85,53 +102,67 @@ export const Login = () => {
 
       {showHamburgerMenu && (
         <div className={styles.hamburgerContainer}>
-          <div className={styles.hamburgerItem}>Home</div>
-          <div className={styles.hamburgerItem}>Home</div>
-          <div className={styles.hamburgerItem}>Home</div>
-          <div className={styles.hamburgerItem}>Home</div>
-          <div className={styles.hamburgerItem}>Home</div>
+          <div className={styles.hamburgerItem}>{loginTexts.navbar.home}</div>
+          <div className={styles.hamburgerItem}>{loginTexts.navbar.order}</div>
+          <div className={styles.hamburgerItem}>
+            {loginTexts.navbar.ourCustomers}
+          </div>
+          <div className={styles.hamburgerItem}>{loginTexts.navbar.about}</div>
+          <div className={styles.hamburgerItem}>
+            {loginTexts.navbar.contact}
+          </div>
         </div>
       )}
 
       <div className={styles.loginContainer}>
         <div className={styles.login}>
-          <div className={styles.loginTitle}>Log in</div>
+          <div className={styles.loginTitle}>{loginTexts.contents.logIn}</div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputLabel}>Enter your email address</div>
+            <div className={styles.inputLabel}>
+              {loginTexts.contents.enterEmail}
+            </div>
             <input
               type="text"
               className={styles.email}
-              placeholder="Email address"
+              placeholder={loginTexts.contents.email}
             />
           </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputLabel}>Enter your password address</div>
+            <div className={styles.inputLabel}>
+              {loginTexts.contents.enterPassword}
+            </div>
             <input
               type="text"
               className={styles.password}
-              placeholder="Password"
+              placeholder={loginTexts.contents.password}
             />
           </div>
-          <button className={styles.loginButton}>Login</button>
+          <button className={styles.loginButton}>
+            {loginTexts.contents.logIn}
+          </button>
 
           <div className={styles.registerForgetContainer}>
-            <button className={styles.registerButton}>Register</button>
-            <button className={styles.forgotButton}>Forgot Password</button>
+            <button className={styles.registerButton}>
+              {loginTexts.contents.register}
+            </button>
+            <button className={styles.forgotButton}>
+              {loginTexts.contents.forgotPassword}
+            </button>
           </div>
         </div>
       </div>
 
       <footer className={styles.footerContainer}>
         <div className={styles.footerTop}>
-          <div className={styles.companyName}>123 Fakturera</div>
+          <div className={styles.companyName}>{loginTexts.footer.address}</div>
           <div className={styles.footerLinks}>
-            <div>Home</div>
-            <div>Order</div>
-            <div>Contact Us</div>
+            <div>{loginTexts.footer.home}</div>
+            <div>{loginTexts.footer.order}</div>
+            <div>{loginTexts.footer.contact}</div>
           </div>
         </div>
         <hr className={styles.line} />
-        <div>© Lättfaktura, CRO no. 638537, 2025. All rights reserved.</div>
+        <div>{loginTexts.footer.allRightServed}</div>
       </footer>
     </div>
   );
