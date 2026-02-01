@@ -1,17 +1,18 @@
 
 const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
-export const getLoginTexts = async (language) => {
+export const loginRequest = async ({email, password}) => {
 
     try {
-        const response = await fetch(`${apiUrl}/loginTexts?lang=${language}`, {
-          method: 'GET',
+        const response = await fetch(`${apiUrl}/login`, {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
+          body: JSON.stringify({ email, password }),
         });
 
-        console.log(response.json);
+        console.log(response);
         
         return response.json();
 

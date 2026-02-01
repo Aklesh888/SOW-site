@@ -19,7 +19,7 @@ body {
 
 .navbarContainer {
   position: relative;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   justify-content: space-around;
   align-self: start;
@@ -63,11 +63,16 @@ body {
 } */
 
 .languageSelect {
+  padding: 4px;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.languageSelectText{
+  color: black
 }
 
 .flagImage {
@@ -197,7 +202,7 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -269,6 +274,13 @@ body {
   padding: 10px 0;
 
   z-index: 99;
+}
+
+
+.errorMessage{
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
 @media (max-width: 1270px) {
