@@ -1,10 +1,14 @@
 import headerStyles from "../styles/PricelistHeader.module.css";
 import menuStyles from "../styles/PricelistMenu.module.css";
-import productStyles from "../styles/PricelistProduct.module.css";
 import contentStyles from "../styles/PricelistContent.module.css";
 import MenuLogo from "../assets/login/SwedenFlag.png";
 import { BiPlusCircle, BiPrinter, BiSearch, BiSolidDownArrow } from "react-icons/bi";
 import { GrSwitch } from "react-icons/gr";
+import { Product } from "../components/product";
+
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getProducts } from "../services/getProducts";
+
 
 export const PricingList = () => {
   return (
@@ -76,6 +80,18 @@ const Menu = () => {
 };
 
 const Contents = () => {
+
+
+  const {data: productsData, isLoading} = useQuery({queryKey: ['products'], queryFn: () => getProducts()})
+
+
+  if (isLoading) {
+    return (
+      <div>Loading</div>
+    )
+  }
+
+
   return (
     <div className={contentStyles.contentRoot}>
       <div className={contentStyles.searchPriceSection}>
@@ -147,49 +163,11 @@ const Contents = () => {
           </div>
         </div>
         <div className={contentStyles.productsContainer}>
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          { productsData&&
+            productsData.data.map((product, id) =>  <Product key={id} articleNo={product.articleNo} name={product.name} description={product.description} inPrice={product.inPrice} inStock={product.inStock} price={product.price} unit={product.unit} />)
+          }
         </div>
       </div>
-    </div>
-  );
-};
-
-const Product = () => {
-  return (
-    <div className={productStyles.productContainer}>
-      <input
-        type="text"
-        name="articleNo"
-        className={productStyles.inputArticleNo}
-      />
-      <input
-        type="text"
-        name="productName"
-        className={productStyles.inputProductName}
-      />
-      <input
-        type="text"
-        name="inPrice"
-        className={productStyles.inputInPrice}
-      />
-      <input type="text" name="price" className={productStyles.inputPrice} />
-      <input type="text" name="unit" className={productStyles.inputUnit} />
-      <input
-        type="text"
-        name="inStock"
-        className={productStyles.inputInStock}
-      />
-      <input
-        type="text"
-        name="description"
-        className={productStyles.inputDescription}
-      />
     </div>
   );
 };

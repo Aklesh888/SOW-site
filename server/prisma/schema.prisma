@@ -29,7 +29,7 @@ model Product {
   description String
   articleNo   String   @unique
   inStock     Int
-  unitsSold   Int      @default(0)
+  unit        String    
   price       Float
   inPrice     Float
   user        User     @relation(fields: [userId], references: [id])
