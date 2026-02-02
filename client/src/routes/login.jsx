@@ -211,7 +211,7 @@ export const Login = () => {
 
       <form onSubmit={handleSubmit} className={styles.loginContainer}>
         <div className={styles.login}>
-          <div className={styles.loginTitle}>{loginTexts.contents.logIn}</div>
+          <h1 className={styles.loginTitle}>{loginTexts.contents.logIn}</h1>
           <div className={styles.inputContainer}>
             <div className={styles.inputLabel}>
               {loginTexts.contents.enterEmail}

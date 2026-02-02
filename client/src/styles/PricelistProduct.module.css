@@ -102,22 +102,15 @@
   .inputUnit {
     display: none;
   }
-  .inputProductName {
-    width: 180px;
-  }
-
+  
   .inputArticleNo {
-    width: 70px;
+    display: none;
   }
-
   
 }
 
 @media (max-width: 500px) {
   
-  .inputArticleNo {
-    display: none;
-  }
   .inputProductName {
     width: 180px;
   }

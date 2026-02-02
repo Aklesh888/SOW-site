@@ -180,13 +180,13 @@ const Contents = () => {
           </button>
           <button className={contentStyles.buttonContainer}>
             <div className={contentStyles.newProductButtonLabel}>
-              New Product
+              Price List
             </div>
             <BiPrinter />
           </button>
           <button className={contentStyles.buttonContainer}>
             <div className={contentStyles.newProductButtonLabel}>
-              New Product
+              Advanced Mode
             </div>
             <FcAdvance />
           </button>
@@ -195,7 +195,7 @@ const Contents = () => {
       <div className={contentStyles.articleSection}>
         <div className={contentStyles.titlesContainer}>
           <div className={contentStyles.titleArticleNo}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <p className={contentStyles.titleLabel}>Article.No</p>
             <BiSolidDownArrow size={20} />
           </div>
           <div className={contentStyles.titleProductName}>
