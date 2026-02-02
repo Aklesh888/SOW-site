@@ -3,6 +3,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .background {
   display: flex;
   flex-direction: column;
@@ -14,15 +19,27 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  justify-content: space-between;
   height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+}
+
+.loggingInText{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
 }
 
 .loadingText {
   display: flex;
-  justify-items: center;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
   height: 100vh;
+  width: 100vw;
 }
 
 .navbarContainer {

@@ -93,15 +93,15 @@
     display: none;
   }
   
+  .inputUnit {
+    display: none;
+  }
 }
 
 
 @media (max-width: 700px) {
   
   
-  .inputUnit {
-    display: none;
-  }
   
   .inputArticleNo {
     display: none;

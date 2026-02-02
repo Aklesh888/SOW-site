@@ -154,6 +154,7 @@ const Contents = () => {
         <div className={contentStyles.searchSection}>
           <div className={contentStyles.searchBarContainer}>
             <input
+              name="search article"
               className={contentStyles.searchInput}
               placeholder="Search article No."
             ></input>
@@ -163,6 +164,7 @@ const Contents = () => {
           </div>
           <div className={contentStyles.searchBarContainer}>
             <input
+              name="Searh Product"
               className={contentStyles.searchInput}
               placeholder="Search article No."
             ></input>
@@ -176,19 +178,19 @@ const Contents = () => {
             <div className={contentStyles.newProductButtonLabel}>
               New Product
             </div>
-            <BiPlusCircle />
+            <BiPlusCircle className={contentStyles.buttonIcon} />
           </button>
           <button className={contentStyles.buttonContainer}>
             <div className={contentStyles.newProductButtonLabel}>
               Price List
             </div>
-            <BiPrinter />
+            <BiPrinter  className={contentStyles.buttonIcon} />
           </button>
           <button className={contentStyles.buttonContainer}>
             <div className={contentStyles.newProductButtonLabel}>
               Advanced Mode
             </div>
-            <FcAdvance />
+            <FcAdvance  className={contentStyles.buttonIcon} />
           </button>
         </div>
       </div>

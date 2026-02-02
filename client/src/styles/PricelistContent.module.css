@@ -1,4 +1,3 @@
-
 html,
 body {
   overflow-x: hidden;
@@ -32,6 +31,11 @@ body {
   gap: 4px;
 }
 
+.buttonIcon {
+  height: 16px;
+  width: 16px;
+}
+
 .titlesContainer {
   width: 100%;
   display: flex;
@@ -63,7 +67,6 @@ body {
   width: 80px;
   padding: 4px;
 }
-
 
 .titlePrice {
   border-radius: 8px;
@@ -130,7 +133,7 @@ body {
   outline: none;
 }
 
-.searchIconContainer{
+.searchIconContainer {
   padding: 6px;
   background-color: #ebebeb;
   border-radius: 0 50% 50% 0;
@@ -194,35 +197,31 @@ body {
   .titleDescription {
     display: none;
   }
-  
+
   .contentRoot {
     width: 98%;
     padding: 10px 1%;
   }
 }
 
-
 @media (max-width: 900px) {
-
-
   .buttonContainer {
     width: 100px;
   }
-  
-  .articleSection{
+
+  .articleSection {
     width: 90%;
   }
-  
+
   .menu {
     display: none;
   }
-  
-  
+
   .contentRoot {
     width: 100%;
     padding: 10px 1%;
   }
-  
+
   .titleInPrice {
     display: none;
   }
@@ -230,23 +229,29 @@ body {
   .titleInStock {
     display: none;
   }
-  .searchPriceSection{
+  .searchPriceSection {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
   }
-  .newProductSection{
+
+  .buttonIcon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .newProductSection {
     width: 80%;
     align-items: center;
     justify-items: center;
   }
-}
-
-@media (max-width: 700px) {
   .titleUnit {
     display: none;
   }
+}
+
+@media (max-width: 700px) {
 
   .titleArticleNo {
     display: none;
@@ -254,19 +259,18 @@ body {
 }
 
 @media (max-width: 500px) {
-  
   .searchSection {
     width: 90%;
     align-items: center;
     justify-items: center;
   }
-  
+
   .searchPriceSection {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
-  
+
   .titleProductName {
     width: 180px;
   }
@@ -274,5 +278,4 @@ body {
   .titlePrice {
     width: 60px;
   }
-
 }
