@@ -268,7 +268,7 @@ export const Login = () => {
           <button type="submit" className={styles.loginButton}>
             {loginTexts.contents.logIn}
           </button>
-          {isLogInPending && <p className={styles.loggingInText}>Logging in</p>}
+          {isLogInPending && <p className={styles.loggingInText}>Logging in...</p>}
           <div className={styles.registerForgetContainer}>
             <button className={styles.registerButton}>
               {loginTexts.contents.register}
