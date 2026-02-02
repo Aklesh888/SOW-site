@@ -306,8 +306,8 @@ a {
 
 .hamburgerContainer {
   position: absolute;
-  top: 32px;
-  left: 20px;
+  top: 36px;
+  left: 132px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -404,9 +404,9 @@ a {
 
   .hamburgerMenu {
     display: block;
-    /* position: absolute;
+    position: absolute;
     top: 20px;
-    right: 20px; */
+    right: 20px;
     cursor: pointer;
   }
 
@@ -445,8 +445,8 @@ a {
 
   .hamburgerContainer {
     position: absolute;
-    top: 64px;
-    left: 20px;
+    top: 74px;
+    left: 32px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
