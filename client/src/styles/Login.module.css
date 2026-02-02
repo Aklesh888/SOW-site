@@ -17,6 +17,13 @@ body {
   width: 100vw;
 }
 
+.loadingText {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .navbarContainer {
   position: relative;
   font-weight: 500;
@@ -71,8 +78,8 @@ body {
   cursor: pointer;
 }
 
-.languageSelectText{
-  color: black
+.languageSelectText {
+  color: black;
 }
 
 .flagImage {
@@ -88,8 +95,8 @@ body {
   padding: 4px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 10px;
   color: black;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
 }
 
 .languageSelect:hover {
@@ -115,7 +122,7 @@ body {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
 }
 
 .loginTitle {
@@ -153,7 +160,7 @@ body {
 }
 
 .email::placeholder {
-  color: 727272;
+  color: rgb(165, 165, 165);
 }
 
 .email:focus {
@@ -161,7 +168,10 @@ body {
   box-shadow: none;
 }
 
-.password {
+.passwordContainer {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
   padding: 2px 16px;
   border-radius: 20px;
   border: 1px solid #727272;
@@ -174,8 +184,19 @@ body {
   box-shadow: none;
 }
 
+.password {
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  height: 32px;
+  width: 90%;
+  outline-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
 .password::placeholder {
-  color: lightgray;
+  color: rgb(165, 165, 165);
 }
 
 .loginButton {
@@ -276,8 +297,7 @@ body {
   z-index: 99;
 }
 
-
-.errorMessage{
+.errorMessage {
   color: red;
   font-size: 14px;
   margin-top: 4px;
@@ -393,7 +413,6 @@ body {
 
     z-index: 99;
   }
-
 
   .login {
     display: flex;

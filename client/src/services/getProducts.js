@@ -12,7 +12,12 @@ export const getProducts = async () => {
           },
         });
 
-        console.log(response.json, 'is response');
+        if (response.status === 401) {
+          throw new Error('Unauthorized: Invalid token');
+        }
+        else if (!response.ok) {
+          throw new Error('Failed to get the products');
+        }
         
         return response.json();
 

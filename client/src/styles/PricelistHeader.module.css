@@ -1,68 +1,79 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100vw;
+  height: 100vh;
 }
 
-
 .header {
-    box-sizing: border-box;
-    padding: 12px 120px ;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    background-color: rgb(9, 116, 255);
+  box-sizing: border-box;
+  padding: 12px 120px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background-color: rgb(9, 116, 255);
+}
+
+.hamburgerMenu {
+  display: none;
+  /* position: absolute; */
 }
 
 .profileContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
 }
 
 .profileImage {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .nameContainer {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
 
 .name {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .address {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .flagContainer {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .flagName {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .flag {
-    height: 40px;
-    width: 40px;
+  height: 40px;
 }
 
-
 @media (max-width: 1270px) {
-    .profileContainer {
-        display: none;
-    }
+  .profileContainer {
+    display: none;
+  }
+
+  .header {
+    padding: 2% 20px;
+  }
+
+  .hamburgerMenu {
+    display: block;
+    cursor: pointer;
+  }
 }

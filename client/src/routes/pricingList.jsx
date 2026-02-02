@@ -2,29 +2,61 @@ import headerStyles from "../styles/PricelistHeader.module.css";
 import menuStyles from "../styles/PricelistMenu.module.css";
 import contentStyles from "../styles/PricelistContent.module.css";
 import MenuLogo from "../assets/login/SwedenFlag.png";
-import { BiPlusCircle, BiPrinter, BiSearch, BiSolidDownArrow } from "react-icons/bi";
-import { GrSwitch } from "react-icons/gr";
+import {
+  BiImport,
+  BiLogOut,
+  BiMenu,
+  BiPlusCircle,
+  BiPrinter,
+  BiSearch,
+  BiSolidDownArrow,
+  BiSolidOffer,
+} from "react-icons/bi";
 import { Product } from "../components/product";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { getProducts } from "../services/getProducts";
-
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { PiInvoice } from "react-icons/pi";
+import { CiSettings } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
+import { GiPriceTag } from "react-icons/gi";
+import { MdInventory } from "react-icons/md";
+import { FcAdvance } from "react-icons/fc";
 
 export const PricingList = () => {
+  const navigate = useNavigate();
+  const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+
+  if (!sessionStorage.getItem("token")) {
+    toast("Token Invalid");
+    navigate("/");
+  }
+
   return (
     <div className={headerStyles.root}>
       <header className={headerStyles.header}>
         <div className={headerStyles.profileContainer}>
-          <img src={MenuLogo} className={headerStyles.profileImage} alt="" />
+          <CgProfile className={headerStyles.profileImage} alt="Profile" />
           <div className={headerStyles.nameContainer}>
             <div className={headerStyles.name}>John Andre</div>
             <div className={headerStyles.address}>Storfjord AS</div>
           </div>
         </div>
+        <div
+          className={headerStyles.hamburgerMenu}
+          onClick={() => {
+            setShowHamburgerMenu(!showHamburgerMenu);
+          }}
+        >
+          <BiMenu size={40}/>
+        </div>
 
         <div className={headerStyles.flagContainer}>
           <h1 className={headerStyles.flagName}>Norway</h1>
-          <img src={MenuLogo} className={headerStyles.flag} alt="" />
+          <img src={MenuLogo} className={headerStyles.flag} alt="COuntry" />
         </div>
       </header>
 
@@ -43,36 +75,48 @@ const Menu = () => {
       <hr />
       <div className={menuStyles.namesContainer}>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
+          <PiInvoice className={menuStyles.itemImage} />
           <div className={menuStyles.itemName}>Invoices</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <CgProfile src={MenuLogo} className={menuStyles.itemImage} alt="" />
+          <div className={menuStyles.itemName}>Customers</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <CiSettings src={MenuLogo} className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>My Business</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <GiPriceTag src={MenuLogo} className={menuStyles.itemImage} alt="" />
+          <div className={menuStyles.itemName}>Price List</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <PiInvoice className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Multiple invoicing</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <PiInvoice className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Unpaid Invoices</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <BiSolidOffer className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Offer</div>
         </div>
         <div className={menuStyles.itemContainer}>
-          <img src={MenuLogo} className={menuStyles.itemImage} alt="" />
-          <div className={menuStyles.itemName}>Invoices</div>
+          <MdInventory className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Inventory Control</div>
+        </div>
+        <div className={menuStyles.itemContainer}>
+          <PiInvoice className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Member Invoicing</div>
+        </div>
+        <div className={menuStyles.itemContainer}>
+          <BiImport className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Import/Export</div>
+        </div>
+        <div className={menuStyles.itemContainer}>
+          <BiLogOut className={menuStyles.itemImage} />
+          <div className={menuStyles.itemName}>Log Out</div>
         </div>
       </div>
     </div>
@@ -80,17 +124,29 @@ const Menu = () => {
 };
 
 const Contents = () => {
+  const {
+    data: productsData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({ queryKey: ["products"], queryFn: () => getProducts() });
 
+  const navigate = useNavigate();
 
-  const {data: productsData, isLoading} = useQuery({queryKey: ['products'], queryFn: () => getProducts()})
+  useEffect(() => {
+    if (isError) {
+      toast(error.message);
+      navigate("/");
+    }
+  }, [isError]);
 
-
-  if (isLoading) {
-    return (
-      <div>Loading</div>
-    )
+  if (isError) {
+    return <div>{error.message}</div>;
   }
 
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
 
   return (
     <div className={contentStyles.contentRoot}>
@@ -102,7 +158,7 @@ const Contents = () => {
               placeholder="Search article No."
             ></input>
             <div className={contentStyles.searchIconContainer}>
-              <BiSearch size={16} color="rgb(155, 196, 255)"/>
+              <BiSearch size={16} color="rgb(155, 196, 255)" />
             </div>
           </div>
           <div className={contentStyles.searchBarContainer}>
@@ -110,8 +166,8 @@ const Contents = () => {
               className={contentStyles.searchInput}
               placeholder="Search article No."
             ></input>
-             <div className={contentStyles.searchIconContainer}>
-              <BiSearch size={16} color="rgb(155, 196, 255)"/>
+            <div className={contentStyles.searchIconContainer}>
+              <BiSearch size={16} color="rgb(155, 196, 255)" />
             </div>
           </div>
         </div>
@@ -126,13 +182,13 @@ const Contents = () => {
             <div className={contentStyles.newProductButtonLabel}>
               New Product
             </div>
-            <BiPrinter/>
+            <BiPrinter />
           </button>
           <button className={contentStyles.buttonContainer}>
             <div className={contentStyles.newProductButtonLabel}>
               New Product
             </div>
-            <GrSwitch />
+            <FcAdvance />
           </button>
         </div>
       </div>
@@ -143,29 +199,40 @@ const Contents = () => {
             <BiSolidDownArrow size={20} />
           </div>
           <div className={contentStyles.titleProductName}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>Product/Service</div>
             <BiSolidDownArrow size={20} />
           </div>
           <div className={contentStyles.titleInPrice}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>In Price</div>
           </div>
           <div className={contentStyles.titlePrice}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>Price</div>
           </div>
           <div className={contentStyles.titleUnit}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>Unit</div>
           </div>
           <div className={contentStyles.titleInStock}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>In Stock</div>
           </div>
           <div className={contentStyles.titleDescription}>
-            <div className={contentStyles.titleLabel}>Article No</div>
+            <div className={contentStyles.titleLabel}>Description</div>
           </div>
         </div>
         <div className={contentStyles.productsContainer}>
-          { productsData&&
-            productsData.data.map((product, id) =>  <Product key={id} articleNo={product.articleNo} name={product.name} description={product.description} inPrice={product.inPrice} inStock={product.inStock} price={product.price} unit={product.unit} />)
-          }
+          {productsData &&
+            productsData.data.map((product, id) => (
+              <Product
+                key={id}
+                id={product.id}
+                articleNo={product.articleNo}
+                name={product.name}
+                description={product.description}
+                inPrice={product.inPrice}
+                inStock={product.inStock}
+                price={product.price}
+                unit={product.unit}
+              />
+            ))}
         </div>
       </div>
     </div>

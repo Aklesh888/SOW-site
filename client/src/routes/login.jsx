@@ -8,8 +8,9 @@ import { getLoginTexts } from "../services/getLoginTexts";
 import { useEffect } from "react";
 import { loginRequest } from "../services/loginRequest";
 import { useNavigate } from "react-router";
-
-
+import { BsEye } from "react-icons/bs";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { BiMenu } from "react-icons/bi";
 
 export const Login = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("english");
@@ -22,6 +23,7 @@ export const Login = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+  const [showPassword, setshowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,19 +36,21 @@ export const Login = () => {
     queryFn: () => getLoginTexts(selectedLanguage),
   });
 
-  const { mutate: logInMutate, isPending: isLogInPending, } = useMutation({
+  const { mutate: logInMutate, isPending: isLogInPending } = useMutation({
     mutationKey: ["login"],
     mutationFn: () => loginRequest(logInForm),
     onSuccess: (data) => {
-      console.log(data);
-      
       if (data.token) {
-        sessionStorage.setItem('token', data.token)
-        navigate('/pricing-list')
+        sessionStorage.setItem("token", data.token);
+        navigate("/pricing-list");
       } else {
-        setErrorEmail(loginTexts.contents.invalidCredentials)
+        setErrorEmail(loginTexts.contents.invalidCredentials);
+        console.log("error credentials");
       }
-    }
+    },
+    onError: () => {
+      setErrorEmail(loginTexts.contents.invalidCredentials);
+    },
   });
 
   useEffect(() => {
@@ -89,13 +93,11 @@ export const Login = () => {
     }
     if (hasError) return;
 
-
     logInMutate();
   };
 
-
   if (isLoading || !loginTexts) {
-    return <div>Loading</div>;
+    return <div className={styles.loadingText}>Loading</div>;
   }
 
   return (
@@ -110,7 +112,7 @@ export const Login = () => {
                 setShowHamburgerMenu(!showHamburgerMenu);
               }}
             >
-              Open
+              <BiMenu />
             </div>
           </div>
         </div>
@@ -182,10 +184,7 @@ export const Login = () => {
         </div>
       )}
 
-      <form
-        onSubmit={handleSubmit}
-        className={styles.loginContainer}
-      >
+      <form onSubmit={handleSubmit} className={styles.loginContainer}>
         <div className={styles.login}>
           <div className={styles.loginTitle}>{loginTexts.contents.logIn}</div>
           <div className={styles.inputContainer}>
@@ -212,20 +211,27 @@ export const Login = () => {
             <div className={styles.inputLabel}>
               {loginTexts.contents.enterPassword}
             </div>
-            <input
-              type="text"
-              name="password"
-              className={styles.password}
-              placeholder={loginTexts.contents.password}
-              value={logInForm.password}
-              onChange={(e) =>
-                setLogInForm((prev) => ({
-                  ...prev,
-                  [e.target.name]: e.target.value,
-                }))
-              }
-              onBlur={handlePasswordBlur}
-            />
+            <div className={styles.passwordContainer}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                className={styles.password}
+                placeholder={loginTexts.contents.password}
+                value={logInForm.password}
+                onChange={(e) =>
+                  setLogInForm((prev) => ({
+                    ...prev,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+                onBlur={handlePasswordBlur}
+              />
+              {showPassword ? (
+                <FiEye style={{ alignSelf: "center" }} onClick={() => setshowPassword(false)} />
+              ) : (
+                <FiEyeOff style={{ alignSelf: "center" }} onClick={() => setshowPassword(true)}/>
+              )}
+            </div>
             <div className={styles.errorMessage}>{errorPassword}</div>
           </div>
           <button type="submit" className={styles.loginButton}>
