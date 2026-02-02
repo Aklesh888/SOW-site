@@ -11,8 +11,9 @@ body {
   margin: 0;
   background-image: url("../assets/login/Background.jpg");
   background-size: cover;
-  background-position: initial;
+  background-position: top;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
   width: 100vw;
 }
@@ -28,6 +29,7 @@ body {
   position: relative;
   font-weight: 500;
   display: flex;
+  align-content: center;
   justify-content: space-around;
   align-self: start;
   margin-left: 0px;
@@ -151,7 +153,7 @@ body {
   border-radius: 20px;
   border: 1px solid #727272;
   font-size: 16px;
-  height: 32px;
+  height: 40px;
   margin: 6px 0px;
   width: 90%;
   outline-color: transparent;
@@ -185,6 +187,7 @@ body {
 }
 
 .password {
+  align-self: center;
   border-radius: 20px;
   border: none;
   font-size: 16px;
@@ -242,7 +245,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 0;
+  padding: 16px 20px;
 }
 
 .footerTop {
@@ -286,7 +289,7 @@ body {
 
 .hamburgerContainer {
   position: absolute;
-  top: 64px;
+  top: 32px;
   left: 20px;
   background: white;
   border-radius: 8px;
@@ -321,7 +324,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8px 0;
+    padding: 8px;
+    padding-top: 80px ;
   }
 
   .background {
@@ -338,12 +342,16 @@ body {
     border-radius: 20px;
     border: 1px solid #727272;
     font-size: 16px;
-    height: 28px;
+    height: 44px;
     margin: 6px 0px;
     width: 90%;
     outline-color: transparent;
     outline: none;
     box-shadow: none;
+  }
+
+  .passwordContainer{
+    height: 44px;
   }
 
   .login {
@@ -371,14 +379,17 @@ body {
   }
 
   .mediumScreenNav {
-    display: block;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
   }
 
   .hamburgerMenu {
-    display: absolute;
-    position: absolute;
+    display: block;
+    /* position: absolute;
     top: 20px;
-    right: 20px;
+    right: 20px; */
     cursor: pointer;
   }
 
@@ -387,7 +398,6 @@ body {
     display: block;
     width: 30px;
     /* height: 3px; */
-    background-color: white;
     margin: 6px 0;
   }
 
@@ -400,10 +410,25 @@ body {
   }
 }
 
-@media (max-width: 1270px) {
+.allRightServed {
+  align-self: center;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+
+  .background{
+    height: auto;
+  }
+
+  /* .navbarContainer {
+    height: 80px;
+    padding: 0 20px;
+  } */
+
   .hamburgerContainer {
     position: absolute;
-    top: 80px;
+    top: 64px;
     left: 20px;
     background: white;
     border-radius: 8px;
@@ -436,5 +461,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: start;
+  }
+
+  .loginTitle{
+    font-size: 32px;
+    padding: 20px;
   }
 }

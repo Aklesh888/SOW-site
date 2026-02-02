@@ -57,6 +57,6 @@ export const LoginController = async (req, res) => {
     { expiresIn: "30d" }
   );
 
-  res.json({ token });
+  res.status(200).json({ token });
 }
 
